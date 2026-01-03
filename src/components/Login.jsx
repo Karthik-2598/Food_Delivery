@@ -48,6 +48,7 @@ const Login = () => {
         { username, password },
         { withCredentials: true }
       );
+      localStorage.setItem('token', res.data.token);
       console.log("Login response:", res.data);
       setUser({
         id: res.data.id,
@@ -55,7 +56,6 @@ const Login = () => {
         role: res.data.role,
         token: res.data.token,
       });
-      localStorage.setItem("token", res.data.accessToken);
       toast.success('Login successful! Welcome back 👋');
       navigate(role === "customer" ? "/customer" : "/admin");
     } catch (err) {

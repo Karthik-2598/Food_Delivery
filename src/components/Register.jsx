@@ -44,6 +44,7 @@ const Register = () => {
     }
     if (!validateForm()) return;
     console.log("Register payload: ", { username, password, role });
+    
     try {
       await axios.post("/auth/register", { username, password, role });
       toast.success('Registration successful! Please login 🎉');
