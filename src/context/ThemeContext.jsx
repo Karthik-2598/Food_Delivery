@@ -1,17 +1,16 @@
-// src/context/ThemeContext.jsx
+
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 
 const ThemeContext = createContext();
-
-export const useThemeContext = () => {
+export function useThemeContext() {
   const context = useContext(ThemeContext);
   if (!context) {
     throw new Error('useThemeContext must be used within a ThemeProviderWrapper');
   }
   return context;
-};
+}
 
 const lightTheme = createTheme({
     typography: {

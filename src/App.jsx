@@ -11,7 +11,7 @@ import axios from 'axios';
 import { LoadScript } from '@react-google-maps/api';
 import 'leaflet/dist/leaflet.css';
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'https://food-delivery-backend-5ixm.onrender.com/api';
 axios.defaults.withCredentials = true;
 
 
@@ -57,7 +57,7 @@ function App() {
   }, []);
   useEffect(()=>{// initialize socket session on user login
     if(user?.id){
-      const newSocket = io('http://localhost:5000', {
+      const newSocket = io('https://food-delivery-backend-5ixm.onrender.com/api', {
         auth: {token: user.token},
       });
       newSocket.on('connect', ()=>{
